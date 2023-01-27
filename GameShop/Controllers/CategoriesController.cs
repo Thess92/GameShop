@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GameShop.Models;
 using GameShop.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GameShop.Controllers
 {
@@ -45,6 +46,7 @@ namespace GameShop.Controllers
         }
 
         // GET: Categories/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -63,6 +65,7 @@ namespace GameShop.Controllers
         }
 
         // GET: Categories/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Categories == null)
@@ -110,6 +113,7 @@ namespace GameShop.Controllers
         }
 
         // GET: Categories/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Categories == null)
